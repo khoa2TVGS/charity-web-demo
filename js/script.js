@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
     // Preloader and Delayed Content Appearance
     const preloader = document.getElementById('preloader');
     const header = document.querySelector('header');
