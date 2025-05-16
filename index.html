@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Hope - Make a Difference</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CharityHope</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#causes">Our Causes</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#donate" class="donate-button">Donate</a></li>
+                <li id="account-nav-item"><a href="login.html" aria-label="Account"><img src="images/icon-account.svg" alt="Account" class="nav-icon"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <video autoplay muted loop playsinline id="hero-video-background">
+                <source src="images/hero-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h2>Welcome to CharityHope</h2>
+                <p>Together, we can make a world of difference. Join us in our mission to bring hope and support to those in need.</p>
+                <a href="#donate" class="btn btn-primary">Donate Now</a>
+                <a href="#causes" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title">About Us</h2>
+            <p>CharityHope is dedicated to improving lives and fostering sustainable change in communities worldwide. We believe in transparency, compassion, and impact. Our team works tirelessly to ensure every contribution makes a real difference.</p>
+            <div class="about-features">
+                <div class="feature">
+                    <img src="images/icon-mission.svg" alt="Our Mission Icon" class="feature-icon">
+                    <h3>Our Mission</h3>
+                    <p>To provide aid and create opportunities for vulnerable populations through comprehensive programs and community engagement.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/icon-vision.svg" alt="Our Vision Icon" class="feature-icon">
+                    <h3>Our Vision</h3>
+                    <p>A world where everyone has the opportunity to live a healthy, educated, and fulfilling life.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/icon-values.svg" alt="Our Values Icon" class="feature-icon">
+                    <h3>Our Values</h3>
+                    <p>Integrity, Empathy, Collaboration, and Empowerment guide all our actions and decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="causes" class="container bg-light">
+            <h2 class="section-title">Our Causes</h2>
+            <div class="causes-grid" id="causes-grid-content">
+                <!-- Dummy content will be loaded here by JavaScript -->
+                <div class="loading-spinner" id="causes-loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- This is a new placeholder for the old content, in case we need to revert or compare -->
+        <section id="causes-original-content" class="container bg-light" style="display:none;">
+            <h2>Our Causes Original</h2>
+            <div class="causes-grid">
+                <div class="cause-card">
+                    <img src="images/cause-education.jpg" alt="Education Cause">
+                    <h3>Education for All</h3>
+                    <p>Providing access to quality education for children in underserved communities.</p>
+                    <a href="#donate" class="btn btn-tertiary">Support Education</a>
+                </div>
+                <div class="cause-card">
+                    <img src="images/cause-health.webp" alt="Healthcare Cause">
+                    <h3>Healthcare Access</h3>
+                    <p>Ensuring essential medical services and health education reach those in need.</p>
+                    <a href="#donate" class="btn btn-tertiary">Support Healthcare</a>
+                </div>
+                <div class="cause-card">
+                    <img src="images/cause-environment.jpg" alt="Environment Cause">
+                    <h3>Environmental Protection</h3>
+                    <p>Working towards a sustainable future by protecting our planet's resources.</p>
+                    <a href="#donate" class="btn btn-tertiary">Support Environment</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div id="events-list">
+                <!-- Dummy content will be loaded here by JavaScript -->
+                <div class="loading-spinner" id="events-loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- This is a new placeholder for the old content, in case we need to revert or compare -->
+        <section id="events-original-content" class="container" style="display:none;">
+            <h2>Upcoming Events Original</h2>
+            <div class="event-item">
+                <h3>Annual Charity Gala</h3>
+                <p><strong>Date:</strong> December 15, 2024</p>
+                <p>Join us for an evening of inspiration and fundraising to support our ongoing projects.</p>
+                <a href="#" class="btn btn-secondary">Learn More & Register</a>
+            </div>
+            <div class="event-item">
+                <h3>Community Clean-up Drive</h3>
+                <p><strong>Date:</strong> November 5, 2024</p>
+                <p>Volunteer with us to make our local environment cleaner and greener.</p>
+                <a href="#" class="btn btn-secondary">Sign Up to Volunteer</a>
+            </div>
+        </section>
+
+        <section id="donate-cta" class="container bg-cta">
+            <h2>Make a Difference Today</h2>
+            <p>Your generous contribution can change lives. Every donation, big or small, helps us continue our vital work.</p>
+            <a href="#donate" class="btn btn-primary btn-large">Donate Now</a>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>We'd love to hear from you! Whether you have a question, want to volunteer, or partner with us, feel free to reach out.</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div id="form-message" role="status" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CharityHope. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="images/icon-facebook.svg" alt="Facebook"></a>
+                <a href="#" aria-label="Twitter"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+                <a href="#" aria-label="Instagram"><img src="images/icon-instagram.svg" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

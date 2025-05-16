@@ -1,0 +1,755 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Global Styles */
+:root {
+    --primary-color: #FF6B6B; /* Coral Red */
+    --secondary-color: #4ECDC4; /* Turquoise */
+    --accent-color: #FFE66D; /* Pale Yellow */
+    --dark-color: #2C3A47; /* Dark Slate Grey */
+    --light-color: #F7F7F7; /* Very Light Grey */
+    --text-color: #333;
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    line-height: 1.7;
+    background-color: var(--light-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--dark-color);
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2.8em;
+    margin-bottom: 0.8em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove bottom space */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px; /* Pill shape */
+    text-align: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-family: var(--heading-font);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #E55A5A; /* Darker coral */
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #3DB8AE; /* Darker turquoise */
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.btn-tertiary {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.btn-tertiary:hover {
+    background-color: #FFDA47; /* Darker yellow */
+    color: var(--dark-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.btn-large {
+    padding: 18px 36px;
+    font-size: 1.2em;
+}
+
+.bg-light {
+    background-color: #fff; /* Changed from f9f9f9 for more contrast */
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.bg-cta {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 60px 30px;
+}
+
+.bg-cta h2 {
+    color: #fff;
+    font-size: 2.5em;
+}
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--light-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Header & Navigation */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 70px; /* Fixed header height */
+    display: flex; /* For vertical alignment of nav content */
+    align-items: center; /* Vertically align nav content */
+    padding: 0 5%; /* Adjust padding to be horizontal only */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Transition for smooth appearance */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure nav takes full width of header */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    /* padding: 10px 0; Removed as header now controls vertical padding */
+}
+
+nav .logo h1 {
+    margin: 0;
+    font-size: 2em;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li#account-nav-item {
+    margin-left: 20px; /* Pushes this item and subsequent items to the right */
+}
+
+nav ul li a {
+    color: var(--dark-color);
+    font-weight: 600;
+    font-family: var(--body-font);
+    padding: 8px 0;
+    position: relative;
+    font-size: 0.95em;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+nav ul li a:hover::after, 
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a.donate-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav ul li a.donate-button:hover {
+    background-color: #E55A5A;
+    transform: translateY(-1px);
+}
+nav ul li a.donate-button::after {
+    display: none; 
+}
+
+/* Account Icon in Nav */
+.nav-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    vertical-align: middle; /* Align icon with text if any */
+    fill: var(--dark-color); /* Match nav link color */
+}
+
+#account-nav-item a:hover .nav-icon {
+    fill: var(--primary-color); /* Change color on hover */
+}
+
+#account-nav-item a::after {
+    display: none; /* No underline for icon link */
+}
+
+.logged-in-user {
+    color: var(--dark-color);
+    font-weight: 600;
+    font-family: var(--body-font);
+    font-size: 0.95em;
+    cursor: default; /* Not a link */
+}
+
+/* Hero Section */
+#hero-video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Behind hero-content */
+}
+
+.hero {
+    /* background: linear-gradient(rgba(44, 58, 71, 0.7), rgba(44, 58, 71, 0.7)), url('../images/hero-background.jpg') no-repeat center center/cover; */
+    /* background-color: var(--dark-color); */ /* Video will be the background */
+    overflow: hidden; /* Ensure video doesn't overflow */ 
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px; /* Adjusted padding */
+    min-height: calc(100vh - 70px); /* Viewport height minus header height (70px) */
+    display: flex;
+    flex-direction: column; /* Ensure content flows vertically */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+/* Add an overlay if needed to ensure text readability over the video */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 58, 71, 0.6); /* Dark overlay, adjust opacity as needed */
+    z-index: 1; /* Same level as video, or just above if video z-index is 0 */
+}
+
+.hero::before {
+   display: none; /* Removed as gradient is now part of background */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above video and overlay */
+    max-width: 800px;
+    margin: 0 auto;
+    /* animation: fadeInHeroContent 1s ease-out forwards; */ /* Replaced by JS controlled fade-in */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition for smooth appearance */
+    transform: translateY(20px); /* Initial position for slide-up effect */
+}
+
+/* @keyframes fadeInHeroContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+} */ /* Animation handled by JS now */
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
+}
+
+.hero .btn {
+    margin: 0 15px;
+}
+
+/* Section General Styling */
+section {
+    padding: 80px 0;
+}
+
+section h2.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.8em;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+section h2.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    display: block; /* Make the image a block element */
+    margin-left: auto; /* Auto margin for horizontal centering */
+    margin-right: auto; /* Auto margin for horizontal centering */
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    fill: var(--primary-color);
+}
+
+.feature h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Causes Section */
+.causes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.cause-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    overflow: hidden; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cause-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+
+.cause-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.cause-card:hover img {
+    transform: scale(1.05);
+}
+
+.cause-card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cause-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.cause-card p {
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.cause-card .btn {
+    align-self: flex-start;
+}
+
+/* Events Section */
+.event-item {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+}
+
+/* Login Page Styles */
+#login {
+    padding-top: 100px; /* Add padding to avoid overlap with sticky header */
+    padding-bottom: 100px;
+    min-height: calc(100vh - 70px - 150px); /* Full height minus header and footer (approx) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-form {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+#login-form h2.section-title {
+    margin-bottom: 30px;
+}
+
+#login-message {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.event-item h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+
+.event-item p strong {
+    color: var(--dark-color);
+}
+
+/* Loading Spinner for dynamic content */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.loading-spinner .spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+}
+
+/* Contact Section */
+#contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; 
+    font-family: var(--body-font);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#form-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+footer .container {
+    padding: 0;
+}
+
+footer p {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    margin: 0 12px;
+    display: inline-block;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.social-links img {
+    width: 28px;
+    height: 28px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(200%);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero h2 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+    section h2.section-title {
+        font-size: 2.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 5%;
+    }
+    nav .logo h1 {
+        font-size: 1.8em;
+    }
+    nav ul {
+        display: none; /* Hidden by default, JS will toggle */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 10px 0;
+    }
+
+    nav ul.active {
+        display: flex; /* Show when active */
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--light-color);
+    }
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    nav ul li a.donate-button {
+        margin: 10px 20px;
+        padding: 12px 20px;
+    }
+
+    nav ul li a::after {
+        display: none; 
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr; /* Stack features */
+    }
+
+    .feature {
+        margin-bottom: 20px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 40px 15px;
+    }
+    section h2.section-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    #contact-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 2em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .btn-large {
+        padding: 15px 25px;
+        font-size: 1em;
+    }
+    section h2.section-title {
+        font-size: 1.8em;
+    }
+}
