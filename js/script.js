@@ -311,13 +311,8 @@ document.addEventListener('DOMContentLoaded', function() {
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Animation classes (if not fully covered by CSS transitions) */
-        .feature, .cause-card, .event-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
+        /* Animation classes for .feature, .cause-card, .event-item are now primarily in style.css */
+        /* The .animate class is still added by JS to trigger the CSS-defined animations. */
         .feature.animate, .cause-card.animate, .event-item.animate {
             opacity: 1;
             transform: translateY(0);
